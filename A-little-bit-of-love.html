@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A little bit of love</title>
+
+<link rel="icon" type="image/png" href="https://th.bing.com/th/id/OIP.kRjBEHC6jC5KHmwu8B09PgHaHa?w=164&h=180">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+    /* 🌈 RAINBOW BACKGROUND ANIMATION */
+    background: linear-gradient(45deg, #ff9ecb, #ffd1dc, #c5b3ff, #a0e7e5, #ffb3ba);
+    background-size: 400% 400%;
+    animation: rainbowBG 12s ease infinite;
+}
+
+@keyframes rainbowBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🌟 SPARKLE TRAIL */
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 14px;
+    animation: sparkleFade 0.8s linear forwards;
+}
+
+@keyframes sparkleFade {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(2); }
+}
+
+/* 🦋 BUTTERFLIES */
+.butterfly {
+    position: absolute;
+    font-size: 30px;
+    animation: fly 10s linear infinite;
+}
+
+@keyframes fly {
+    0% { transform: translateX(-10vw) translateY(0); }
+    50% { transform: translateX(50vw) translateY(-20vh); }
+    100% { transform: translateX(110vw) translateY(0); }
+}
+
+/* 🌸 CHERRY BLOSSOM PETALS */
+.petal {
+    position: absolute;
+    top: -20px;
+    font-size: 20px;
+    color: #ffb7c5;
+    animation: fall 6s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
+/* ❤️ FLOATING HEART PARTICLES */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 4s linear infinite, colorChange 2s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-200px) scale(1.8); opacity: 0; }
+}
+
+@keyframes colorChange {
+    0% { color: #ff8fb1; }
+    25% { color: #ffb3d9; }
+    50% { color: #ff99cc; }
+    75% { color: #ff66b3; }
+    100% { color: #ff8fb1; }
+}
+
+/* 💗 CLICK-POP HEARTS */
+.pop-heart {
+    position: absolute;
+    font-size: 30px;
+    color: #ff6fa8;
+    animation: pop 0.6s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.3); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* 💐 FLOWER BLOOM ON BUTTON CLICK */
+.flower {
+    position: absolute;
+    font-size: 28px;
+    animation: bloom 0.8s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes bloom {
+    0% { transform: scale(0.2); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* 💞 HEARTBEAT INTRO TEXT */
+.intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-weight: bold;
+    color: white;
+    z-index: 999;
+    opacity: 1;
+    animation: heartbeat 1.5s infinite;
+    transition: opacity 1.2s ease;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.08); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* 🎀 TOP BAR WITH RIBBONS + GLOW */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    background: #ffffffaa;
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid #d0d0d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255, 150, 200, 0.7);
+    animation: glowPulse 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+.topbar::before,
+.topbar::after {
+    content: "🎀";
+    font-size: 26px;
+    margin: 0 15px;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(255, 150, 200, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 100, 180, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(255, 150, 200, 0.5); }
+}
+
+/* ✨ BUTTONS WITH SPARKLES + BOUNCE */
+.start-btn {
+    background: linear-gradient(#ffffff, #e6e6e6);
+    border: 1px solid #c6c6c6;
+    border-radius: 6px;
+    padding: 14px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    transition: 0.25s;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sparkles */
+.start-btn:hover::after {
+    content: "✨";
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 25px;
+    animation: sparkle 0.6s ease-out forwards;
+}
+
+@keyframes sparkle {
+    0% { opacity: 1; transform: scale(0.5) rotate(0deg); }
+    100% { opacity: 0; transform: scale(2) rotate(180deg); }
+}
+
+/* Bounce */
+.start-btn:hover {
+    transform: translateY(-6px) scale(1.08);
+    background: linear-gradient(#ffe6f2, #ffccdd);
+    box-shadow: 0 6px 12px rgba(255, 100, 150, 0.4);
+}
+
+.start-btn:active {
+    transform: scale(0.95);
+}
+</style>
+</head>
+
+<body onload="startIntro(); generateHearts(); generatePetals(); generateButterflies();">
+
+<!-- INTRO OVERLAY -->
+<div id="intro" class="intro">A little bit of love</div>
+
+<div class="topbar">A little bit of love</div>
+
+<!-- BUTTONS -->
+<button class="start-btn" onclick="buttonBloom(event); openSite1()">Open Nebulo</button>
+<button class="start-btn" onclick="buttonBloom(event); openSite2()">Open Old Nebulo</button>
+<button class="start-btn" onclick="buttonBloom(event); openSite3()">Open CCPorted</button>
+ 
+<script>
+/* INTRO FADE OUT */
+function startIntro() {
+    setTimeout(() => {
+        const intro = document.getElementById("intro");
+        intro.style.opacity = "0";
+        setTimeout(() => intro.style.display = "none", 1200);
+    }, 2000);
+}
+
+/* OPEN IFRAME SITES */
+function openSite1() { openIframe("https://meisangeymad.pnlbraila.ro/"); }
+function openSite2() { openIframe("https://schooler1.wixsite.com/tomatian"); }
+function openSite3() { openIframe("https://gh-pages.dff868puk4wz6.amplifyapp.com/"); }
+
+function openIframe(url) {
+    const win = window.open("about:blank", "_blank");
+    if (!win) return;
+    win.document.write(`
+        <html>
+        <head>
+            <title>A little bit of love</title>
+            <style>
+                html, body { margin: 0; height: 100%; overflow: hidden; }
+                iframe { width: 100vw; height: 100vh; border: none; }
+            </style>
+        </head>
+        <body>
+            <iframe src="${url}"></iframe>
+        </body>
+        </html>
+    `);
+    win.document.close();
+}
+
+/* ❤️ FLOATING HEART PARTICLES */
+function generateHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        heart.style.fontSize = (20 + Math.random() * 20) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }, 300);
+}
+
+/* 🌸 CHERRY BLOSSOM PETALS */
+function generatePetals() {
+    setInterval(() => {
+        const petal = document.createElement("div");
+        petal.classList.add("petal");
+        petal.innerHTML = "🌸";
+        petal.style.left = Math.random() * window.innerWidth + "px";
+        petal.style.fontSize = (20 + Math.random() * 20) + "px";
+        petal.style.animationDuration = (5 + Math.random() * 4) + "s";
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 9000);
+    }, 500);
+}
+
+/* 🦋 BUTTERFLIES */
+function generateButterflies() {
+    setInterval(() => {
+        const b = document.createElement("div");
+        b.classList.add("butterfly");
+        b.innerHTML = "🦋";
+        b.style.left = "-50px";
+        b.style.top = Math.random() * window.innerHeight + "px";
+        b.style.animationDuration = (8 + Math.random() * 5) + "s";
+        document.body.appendChild(b);
+        setTimeout(() => b.remove(), 15000);
+    }, 2000);
+}
+
+/* 🌟 SPARKLE TRAIL */
+document.addEventListener("mousemove", (e) => {
+    const s = document.createElement("div");
+    s.classList.add("sparkle");
+    s.innerHTML = "✨";
+    s.style.left = e.clientX + "px";
+    s.style.top = e.clientY + "px";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 800);
+});
+
+/* 💗 CLICK-POP HEARTS */
+document.addEventListener("click", (e) => {
+    const pop = document.createElement("div");
+    pop.classList.add("pop-heart");
+    pop.innerHTML = "❤";
+    pop.style.left = e.clientX - 15 + "px";
+    pop.style.top = e.clientY - 15 + "px";
+    document.body.appendChild(pop);
+    setTimeout(() => pop.remove(), 600);
+});
+
+/* 💐 FLOWER BLOOM ON BUTTON CLICK */
+function buttonBloom(event) {
+    const rect = event.target.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerHTML = "🌼";
+    flower.style.left = x + "px";
+    flower.style.top = y + "px";
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 800);
+}
+</script>
+
+</body>
+</html>
